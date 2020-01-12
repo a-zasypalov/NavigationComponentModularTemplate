@@ -54,7 +54,7 @@ class DeepLinkTest {
 
         pressBack()
 
-        // The list should be shown
+        // The blank should be shown
         assertList()
 
         pressBack()

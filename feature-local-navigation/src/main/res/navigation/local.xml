@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    app:startDestination="@+id/localNavigationStart"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/localNavigationStart"
+        android:name="gaoyun.com.feature_home.homescreen.LocalNavigationStartFragment"
+        android:label="LocalNavigationStartFragment"
+        tools:layout="@layout/fragment_local_start">
+        <action
+            android:id="@+id/action_local_start_to_destination"
+            app:destination="@id/localNavigationDestination"
+            app:popUpTo="@+id/localNavigationStart" />
+    </fragment>
+    <fragment
+        android:id="@+id/localNavigationDestination"
+        android:name="gaoyun.com.feature_home.homescreen.LocalNavigationDestinationFragment"
+        android:label="LocalNavigationDestinationFragment"
+        tools:layout="@layout/fragment_local_destination"/>
+</navigation>

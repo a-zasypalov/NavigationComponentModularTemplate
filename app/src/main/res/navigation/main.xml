@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/tabsFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.android.navigationadvancedsample.MainFragment"
-        android:label="MainFragment" >
+        android:id="@+id/tabsFragment"
+        android:name="com.example.android.navigationadvancedsample.TabsFragment"
+        android:label="TabsFragment">
         <action
-            android:id="@+id/action_mainFragment_to_registered2"
-            app:destination="@id/registered2" />
+            android:id="@+id/action_tabsFragment_to_global_destination"
+            app:destination="@id/globalDestinationFragmentGlobal" />
     </fragment>
     <fragment
-        android:id="@+id/registered2"
-        android:name="com.example.android.navigationadvancedsample.formscreen.Registered"
-        android:label="fragment_registered"
-        tools:layout="@layout/fragment_registered" />
+        android:id="@+id/globalDestinationFragmentGlobal"
+        android:name="com.example.android.navigationadvancedsample.formscreen.GlobalNavigationDestinationFragment"
+        android:label="GlobalNavigationDestinationFragment"
+        tools:layout="@layout/fragment_global_destination" />
 </navigation>
