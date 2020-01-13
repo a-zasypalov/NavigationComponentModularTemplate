@@ -1,4 +1,4 @@
-package com.gaoyun.navigationcomponentmodulartemplate
+package gaoyun.com.feature_tabs_screen
 
 import android.os.Bundle
 import android.view.View
@@ -6,8 +6,8 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
-import com.gaoyun.android.navigationadvancedsample.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import gaoyun.com.core_utils.setupWithNavController
 
 class TabsFragment : Fragment(R.layout.fragment_tabs) {
 

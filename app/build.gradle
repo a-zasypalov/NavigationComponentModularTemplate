@@ -33,9 +33,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':feature-local-navigation')
-    implementation project(':feature-global-navigation')
-    implementation project(':feature-info-screen')
+    implementation project(':feature-tabs-screen')
     implementation project(':core-utils')
 
     implementation deps.kotlin.stdlib

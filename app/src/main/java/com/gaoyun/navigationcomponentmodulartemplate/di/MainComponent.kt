@@ -1,5 +1,7 @@
-package com.gaoyun.navigationcomponentmodulartemplate
+package com.gaoyun.navigationcomponentmodulartemplate.di
 
+import com.gaoyun.navigationcomponentmodulartemplate.navigation.GlobalNavigator
+import com.gaoyun.navigationcomponentmodulartemplate.MainActivity
 import dagger.Binds
 import dagger.Component
 import dagger.Module

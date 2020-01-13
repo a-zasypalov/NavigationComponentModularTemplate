@@ -1,4 +1,4 @@
-package com.gaoyun.navigationcomponentmodulartemplate
+package gaoyun.com.core_utils
 
 import android.content.Intent
 import android.util.SparseArray
@@ -11,11 +11,6 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-/**
- * Manages the various graphs needed for a [BottomNavigationView].
- *
- * This sample is a workaround until the Navigation Component supports multiple back stacks.
- */
 fun BottomNavigationView.setupWithNavController(
         navGraphIds: List<Int>,
         fragmentManager: FragmentManager,

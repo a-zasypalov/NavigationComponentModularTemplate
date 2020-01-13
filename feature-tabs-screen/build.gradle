@@ -27,6 +27,12 @@ android {
 
 dependencies {
 
+    implementation project(':core-utils')
+
+    api project(':feature-global-navigation')
+    implementation project(':feature-local-navigation')
+    implementation project(':feature-info-screen')
+
     implementation deps.kotlin.stdlib
     implementation deps.support.app_compat
     implementation deps.support.design

@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.gaoyun.android.navigationadvancedsample.R
+import com.gaoyun.navigationcomponentmodulartemplate.di.DaggerMainComponent
+import com.gaoyun.navigationcomponentmodulartemplate.di.GlobalNavigatorModule
+import com.gaoyun.navigationcomponentmodulartemplate.navigation.GlobalNavigator
 import gaoyun.com.core_utils.ComponentDependenciesProvider
 import gaoyun.com.core_utils.HasComponentDependencies
 import javax.inject.Inject
@@ -12,9 +15,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), GlobalNavigator,
 
     @Inject
     override lateinit var dependencies: ComponentDependenciesProvider
-
-    @Inject
-    lateinit var globalNavigator: GlobalNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

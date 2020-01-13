@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/tabsFragment"
-        android:name="com.gaoyun.navigationcomponentmodulartemplate.TabsFragment"
+        android:name="gaoyun.com.feature_tabs_screen.TabsFragment"
         android:label="TabsFragment">
         <action
             android:id="@+id/action_tabsFragment_to_global_destination"
