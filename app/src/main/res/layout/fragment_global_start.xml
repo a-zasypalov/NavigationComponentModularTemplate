@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
-    tools:context="com.example.android.navigationadvancedsample.formscreen.GlobalNavigationStartFragment"
     tools:layout_editor_absoluteY="81dp">
 
     <com.google.android.material.button.MaterialButton
@@ -14,12 +12,12 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:text="Global navigation"
         android:textColor="#fff"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
+        android:textStyle="bold" />
 
 </FrameLayout>

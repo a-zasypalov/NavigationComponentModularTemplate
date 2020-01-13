@@ -1,10 +1,10 @@
-package com.example.android.navigationadvancedsample.formscreen
+package com.gaoyun.navigationcomponentmodulartemplate.formscreen
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.android.navigationadvancedsample.MainActivity
-import com.example.android.navigationadvancedsample.R
+import com.gaoyun.navigationcomponentmodulartemplate.MainActivity
+import com.gaoyun.android.navigationadvancedsample.R
 
 class GlobalNavigationStartFragment : Fragment(R.layout.fragment_global_start) {
 

@@ -9,7 +9,7 @@
 
     <fragment
             android:id="@+id/register"
-            android:name="com.example.android.navigationadvancedsample.formscreen.GlobalNavigationStartFragment"
+            android:name="com.gaoyun.navigationcomponentmodulartemplate.formscreen.GlobalNavigationStartFragment"
             android:label="@string/title_register"
             tools:layout="@layout/fragment_global_start">
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/registered"
-        android:name="com.example.android.navigationadvancedsample.formscreen.GlobalNavigationDestinationFragment"
+        android:name="com.gaoyun.navigationcomponentmodulartemplate.formscreen.GlobalNavigationDestinationFragment"
         android:label="Registered"
         tools:layout="@layout/fragment_global_destination"/>
 </navigation>

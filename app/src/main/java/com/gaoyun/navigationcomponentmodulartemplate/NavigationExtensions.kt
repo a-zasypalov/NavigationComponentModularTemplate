@@ -1,4 +1,4 @@
-package com.example.android.navigationadvancedsample
+package com.gaoyun.navigationcomponentmodulartemplate
 
 import android.content.Intent
 import android.util.SparseArray

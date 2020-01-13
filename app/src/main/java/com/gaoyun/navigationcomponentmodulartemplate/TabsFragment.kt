@@ -1,4 +1,4 @@
-package com.example.android.navigationadvancedsample
+package com.gaoyun.navigationcomponentmodulartemplate
 
 import android.os.Bundle
 import android.view.View
@@ -6,6 +6,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
+import com.gaoyun.android.navigationadvancedsample.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class TabsFragment : Fragment(R.layout.fragment_tabs) {
@@ -21,7 +22,7 @@ class TabsFragment : Fragment(R.layout.fragment_tabs) {
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 currentNavController?.value?.let {
-                    if (it.currentDestination?.id == R.id.blankFragment
+                    if (it.currentDestination?.id == R.id.infoFragment
                             || it.currentDestination?.id == R.id.localNavigationStart
                             || it.currentDestination?.id == R.id.register) {
                         this.isEnabled = false
@@ -43,7 +44,7 @@ class TabsFragment : Fragment(R.layout.fragment_tabs) {
     private fun setupBottomNavigationBar() {
         val bottomNavigationView = requireView().findViewById<BottomNavigationView>(R.id.bottom_nav)
 
-        val navGraphIds = listOf(gaoyun.com.feature_home.R.navigation.local, R.navigation.blank, R.navigation.global)
+        val navGraphIds = listOf(gaoyun.com.feature_home.R.navigation.local, R.navigation.info, R.navigation.global)
 
         val controller = bottomNavigationView.setupWithNavController(
                 navGraphIds = navGraphIds,

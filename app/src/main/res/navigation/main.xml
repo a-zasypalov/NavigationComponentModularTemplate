@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/tabsFragment"
-        android:name="com.example.android.navigationadvancedsample.TabsFragment"
+        android:name="com.gaoyun.navigationcomponentmodulartemplate.TabsFragment"
         android:label="TabsFragment">
         <action
             android:id="@+id/action_tabsFragment_to_global_destination"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/globalDestinationFragmentGlobal"
-        android:name="com.example.android.navigationadvancedsample.formscreen.GlobalNavigationDestinationFragment"
+        android:name="com.gaoyun.navigationcomponentmodulartemplate.formscreen.GlobalNavigationDestinationFragment"
         android:label="GlobalNavigationDestinationFragment"
         tools:layout="@layout/fragment_global_destination" />
 </navigation>

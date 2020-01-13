@@ -1,8 +1,9 @@
 
-package com.example.android.navigationadvancedsample
+package com.gaoyun.navigationcomponentmodulartemplate
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import com.gaoyun.android.navigationadvancedsample.R
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
