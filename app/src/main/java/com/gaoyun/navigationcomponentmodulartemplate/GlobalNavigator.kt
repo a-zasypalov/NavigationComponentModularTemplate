@@ -1,0 +1,5 @@
+package com.gaoyun.navigationcomponentmodulartemplate
+
+import gaoyun.com.feature_global_navigation.navigation.FeatureGlobalNavigation
+
+interface GlobalNavigator : FeatureGlobalNavigation
