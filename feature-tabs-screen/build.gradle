@@ -29,9 +29,9 @@ dependencies {
 
     implementation project(':core-utils')
 
-    api project(':feature-global-navigation')
-    implementation project(':feature-local-navigation')
-    implementation project(':feature-info-screen')
+    api project(':tab-feature-global')
+    implementation project(':tab-feature-local')
+    implementation project(':tab-feature-advice')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61"
 
