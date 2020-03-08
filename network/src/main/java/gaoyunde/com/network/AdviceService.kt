@@ -1,10 +1,10 @@
-package com.example.network
+package gaoyunde.com.network
 
-import com.example.data.AdviceObject
+import gaoyunde.com.network.responses.AdviceObject
 import io.reactivex.Single
 import retrofit2.http.GET
 
-interface Api {
+interface AdviceService {
 
     @GET("advice")
     fun getRandomAdvice(): Single<AdviceObject>

@@ -1,4 +1,4 @@
-package com.example.data
+package gaoyunde.com.network.responses
 
 import com.google.gson.annotations.SerializedName
 

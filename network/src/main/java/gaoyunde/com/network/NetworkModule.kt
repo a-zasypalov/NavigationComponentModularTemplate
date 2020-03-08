@@ -1,5 +1,6 @@
-package com.example.network
+package gaoyunde.com.network
 
+import com.example.network.BuildConfig
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -54,8 +55,8 @@ class NetworkModule {
     }
 
     @Provides
-    internal fun provideApi(retrofit: Retrofit) : Api {
-        return retrofit.create<Api>(Api::class.java)
+    internal fun provideApi(retrofit: Retrofit) : AdviceService {
+        return retrofit.create<AdviceService>(AdviceService::class.java)
     }
 
 }
