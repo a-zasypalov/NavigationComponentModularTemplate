@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import com.jakewharton.rxbinding2.view.clicks
 import gaoyun.com.core_utils.findComponentDependencies
@@ -18,8 +20,7 @@ import javax.inject.Inject
 
 class AdviceFragment : Fragment(R.layout.fragment_advice) {
 
-    @Inject
-    lateinit var viewModel: AdviceViewModel
+    private val viewModel: AdviceViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +29,7 @@ class AdviceFragment : Fragment(R.layout.fragment_advice) {
                 .adviceDependencies(findComponentDependencies())
                 .adviceModule(AdviceModule())
                 .build()
-                .inject(this)
+                .inject(viewModel)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

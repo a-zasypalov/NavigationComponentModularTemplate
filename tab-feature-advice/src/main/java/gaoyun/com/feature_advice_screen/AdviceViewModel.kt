@@ -9,7 +9,10 @@ import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 @SuppressLint("CheckResult")
-class AdviceViewModel @Inject constructor(private val repository: AdviceRepository) : ViewModel() {
+class AdviceViewModel: ViewModel() {
+
+    @Inject
+    lateinit var repository: AdviceRepository
 
     internal val adviceLiveData = MutableLiveData<AdviceUiModel>()
     private val disposables = CompositeDisposable()

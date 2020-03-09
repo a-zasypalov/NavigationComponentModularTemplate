@@ -15,7 +15,7 @@ interface AdviceDependencies : ComponentDependencies {
 
 @Component(dependencies = [AdviceDependencies::class], modules = [AdviceModule::class])
 interface AdviceComponent {
-    fun inject(fragment: AdviceFragment)
+    fun inject(viewModel: AdviceViewModel)
 }
 
 @Module
@@ -24,11 +24,6 @@ class AdviceModule {
     @Provides
     internal fun provideRepository(interactor: AdviceRemoteRepositoryInteractor): AdviceRepository {
         return AdviceRepository(interactor)
-    }
-
-    @Provides
-    internal fun provideViewModel(repository: AdviceRepository): AdviceViewModel {
-        return AdviceViewModel(repository)
     }
 
 }
