@@ -15,7 +15,10 @@ class AdviceViewModel @Inject constructor(private val repository: AdviceReposito
     private val disposables = CompositeDisposable()
 
     fun getRandomAdvice() {
-
+        disposables.add(repository.getRandomAdvice().subscribe(
+                { advice -> adviceLiveData.postValue(AdviceUiModel.Success(advice)) },
+                { adviceLiveData.postValue(AdviceUiModel.Error(it.localizedMessage ?: "Error")) }
+        ))
     }
 
     override fun onCleared() {
