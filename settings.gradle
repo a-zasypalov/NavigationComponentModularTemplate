@@ -1,1 +1,1 @@
-include ':app', ':tab-feature-local', ':tab-feature-advice', ':tab-feature-global', ':core-utils', ':feature-tabs-screen', ':network', ':data'
+include ':app', ':tab-feature-local', ':tab-feature-advice', ':tab-feature-global', ':core-utils', ':feature-tabs-screen', ':network', ':data', ':persistence'
