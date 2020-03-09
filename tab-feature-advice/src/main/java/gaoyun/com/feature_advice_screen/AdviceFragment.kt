@@ -47,6 +47,7 @@ class AdviceFragment : Fragment(R.layout.fragment_advice) {
         pbLoading.show()
         llActions.hide()
         tvAdviceText.hide()
+        etAdviceId.clearFocus()
     }
 
     private fun setContentState(){
