@@ -10,6 +10,7 @@ import gaoyun.com.data.Advice
 import gaoyun.com.feature_advice_screen.data.AdviceUiModel
 import gaoyun.com.feature_advice_screen.repository.AdviceRepository
 import io.reactivex.Single
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
@@ -19,8 +20,13 @@ class AdviceViewModelTests {
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     private val mockRepository: AdviceRepository = mock()
-    private val viewModel = AdviceViewModel(mockRepository)
+    private val viewModel = AdviceViewModel()
     private val faker = Faker()
+
+    @Before
+    fun setup() {
+        viewModel.repository = mockRepository
+    }
 
     @Test
     fun getRandomAdvice_CallsRepository(){
