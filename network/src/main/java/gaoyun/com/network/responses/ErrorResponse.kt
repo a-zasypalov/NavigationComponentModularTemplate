@@ -1,4 +1,4 @@
-package gaoyunde.com.network.responses
+package gaoyun.com.network.responses
 
 data class ErrorResponse(
         val message: ErrorMessage

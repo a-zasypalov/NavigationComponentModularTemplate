@@ -1,6 +1,6 @@
-package gaoyunde.com.network
+package gaoyun.com.network
 
-import gaoyunde.com.network.responses.AdviceObject
+import gaoyun.com.network.responses.AdviceObject
 import io.reactivex.Single
 import retrofit2.http.GET
 
