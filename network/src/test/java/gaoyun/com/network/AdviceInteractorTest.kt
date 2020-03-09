@@ -39,7 +39,7 @@ class AdviceInteractorTest {
 
     @Test
     fun getAdviceByIdWithValidId_emitsAdvice() {
-        whenever(repositoryMock.getAdviceById(idError.toString())).thenReturn(Single.just(adviceRemoteError))
+        whenever(repositoryMock.getAdviceById(id.toString())).thenReturn(Single.just(adviceRemote))
 
         val tesObserver = interactor.getAdviceById(id).test()
         tesObserver.assertValue(advice)
@@ -49,7 +49,7 @@ class AdviceInteractorTest {
     fun getAdviceByIdWithInvalidId_emitsAdviceWithError() {
         whenever(repositoryMock.getAdviceById(idError.toString())).thenReturn(Single.just(adviceRemoteError))
 
-        val tesObserver = interactor.getAdviceById(id).test()
+        val tesObserver = interactor.getAdviceById(idError).test()
         tesObserver.assertValue(adviceError)
     }
 
