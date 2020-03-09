@@ -5,7 +5,7 @@ import gaoyun.com.network.domain.AdviceRemoteRepositoryInteractor
 import io.reactivex.Single
 import javax.inject.Inject
 
-class AdviceRepository @Inject constructor(val interactor: AdviceRemoteRepositoryInteractor) {
+class AdviceRepository @Inject constructor(private val interactor: AdviceRemoteRepositoryInteractor) {
 
     fun getRandomAdvice(): Single<Advice> {
         return interactor.getRandomAdvice()
