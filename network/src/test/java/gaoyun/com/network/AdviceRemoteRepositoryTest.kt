@@ -6,7 +6,6 @@ import com.nhaarman.mockitokotlin2.whenever
 import gaoyun.com.network.repository.AdviceRemoteRepositoryImpl
 import gaoyun.com.network.responses.AdviceObject
 import gaoyun.com.network.responses.ErrorMessage
-import gaoyun.com.network.responses.ErrorResponse
 import gaoyun.com.network.responses.SlipObject
 import io.reactivex.Single
 import org.junit.Test
@@ -31,19 +30,21 @@ class AdviceRemoteRepositoryTest {
     fun getAdviceByIdWithValidId_EmitsAdvice() {
         val advice = AdviceObject(SlipObject(faker.idNumber().valid(), faker.lorem().sentence()))
 
-        whenever(adviceServiceMock.getAdviceById(advice.slip.slipId)).thenReturn(Single.just(advice))
+        whenever(adviceServiceMock.getAdviceById(advice.slip?.slipId!!))
+                .thenReturn(Single.just(advice))
 
-        val testObserver = repository.getRandomAdvice().test()
+        val testObserver = repository.getAdviceById(advice.slip?.slipId!!).test()
         testObserver.assertValue(advice)
     }
 
     @Test
     fun getAdviceByIdWithNotValidId_EmitsError() {
-        val error = ErrorResponse(ErrorMessage(faker.lorem().word(), faker.lorem().sentence()))
+        val error = AdviceObject(error = ErrorMessage(faker.lorem().word(), faker.lorem().sentence()))
+        val invalidId = faker.idNumber().invalid()
 
-        whenever(adviceServiceMock.getAdviceById(faker.idNumber().invalid())).thenReturn(Single.just(error))
+        whenever(adviceServiceMock.getAdviceById(invalidId)).thenReturn(Single.just(error))
 
-        val testObserver = repository.getRandomAdvice().test()
+        val testObserver = repository.getAdviceById(invalidId).test()
         testObserver.assertValue(error)
     }
 
