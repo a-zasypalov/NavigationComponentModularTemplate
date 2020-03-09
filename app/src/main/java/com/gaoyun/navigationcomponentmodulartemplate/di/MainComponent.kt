@@ -11,12 +11,19 @@ import gaoyun.com.core_utils.ComponentDependencies
 import gaoyun.com.core_utils.ComponentDependenciesKey
 import gaoyun.com.feature_global_navigation.di.FeatureGlobalNavigationComponentDependencies
 import gaoyun.com.feature_global_navigation.navigation.FeatureGlobalNavigation
+import gaoyun.com.feature_info_screen.di.AdviceDependencies
+import gaoyun.com.network.di.NetworkModule
 
 @Component(
-        modules = [GlobalNavigatorModule::class, MainComponentDependenciesModule::class]
+        modules = [
+            NetworkModule::class,
+            GlobalNavigatorModule::class,
+            MainComponentDependenciesModule::class
+        ]
 )
 interface MainComponent
-    : FeatureGlobalNavigationComponentDependencies {
+    : FeatureGlobalNavigationComponentDependencies,
+        AdviceDependencies {
 
     fun inject(mainActivity: MainActivity)
 
@@ -40,5 +47,10 @@ abstract class MainComponentDependenciesModule private constructor() {
     @IntoMap
     @ComponentDependenciesKey(FeatureGlobalNavigationComponentDependencies::class)
     abstract fun provideFeatureGlobalNavigationComponentDependencies(component: MainComponent): ComponentDependencies
+
+    @Binds
+    @IntoMap
+    @ComponentDependenciesKey(AdviceDependencies::class)
+    abstract fun provideAdviceDependencies(component: MainComponent): ComponentDependencies
 
 }

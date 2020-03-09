@@ -7,6 +7,7 @@ import gaoyun.com.network.repository.AdviceRemoteRepositoryImpl
 import gaoyun.com.network.responses.AdviceObject
 import gaoyun.com.network.responses.ErrorMessage
 import gaoyun.com.network.responses.SlipObject
+import gaoyun.com.network.service.AdviceService
 import io.reactivex.Single
 import org.junit.Test
 

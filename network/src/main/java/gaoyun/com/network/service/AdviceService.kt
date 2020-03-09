@@ -1,4 +1,4 @@
-package gaoyun.com.network
+package gaoyun.com.network.service
 
 import gaoyun.com.network.responses.AdviceObject
 import io.reactivex.Single

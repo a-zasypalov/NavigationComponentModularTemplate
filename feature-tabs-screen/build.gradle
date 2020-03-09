@@ -30,8 +30,8 @@ dependencies {
     implementation project(':core-utils')
 
     api project(':tab-feature-global')
-    implementation project(':tab-feature-local')
-    implementation project(':tab-feature-advice')
+    api project(':tab-feature-local')
+    api project(':tab-feature-advice')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61"
 

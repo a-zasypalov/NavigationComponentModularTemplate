@@ -1,9 +1,12 @@
-package gaoyun.com.network
+package gaoyun.com.network.di
 
 import com.example.network.BuildConfig
 import com.google.gson.GsonBuilder
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.multibindings.IntoMap
+import gaoyun.com.network.service.AdviceService
 import gaoyun.com.network.domain.AdviceRemoteRepositoryInteractor
 import gaoyun.com.network.repository.AdviceRemoteRepository
 import gaoyun.com.network.repository.AdviceRemoteRepositoryImpl

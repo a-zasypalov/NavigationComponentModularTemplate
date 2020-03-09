@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/infoFragment"
-        android:name="gaoyun.com.feature_info_screen.InfoFragment"
+        android:name="gaoyun.com.feature_info_screen.AdviceFragment"
         android:label="InfoFragment"
-        tools:layout="@layout/fragment_info" />
+        tools:layout="@layout/fragment_advice" />
 </navigation>
