@@ -4,6 +4,9 @@ import com.example.network.BuildConfig
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
+import gaoyun.com.network.domain.AdviceRemoteRepositoryInteractor
+import gaoyun.com.network.repository.AdviceRemoteRepository
+import gaoyun.com.network.repository.AdviceRemoteRepositoryImpl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -55,8 +58,18 @@ class NetworkModule {
     }
 
     @Provides
-    internal fun provideApi(retrofit: Retrofit) : AdviceService {
+    internal fun provideApi(retrofit: Retrofit): AdviceService {
         return retrofit.create<AdviceService>(AdviceService::class.java)
+    }
+
+    @Provides
+    internal fun provideAdviceRemoteRepository(adviceService: AdviceService): AdviceRemoteRepository {
+        return AdviceRemoteRepositoryImpl(adviceService)
+    }
+
+    @Provides
+    internal fun provideAdviceRemoteRepositoryInteractor(repository: AdviceRemoteRepository): AdviceRemoteRepositoryInteractor {
+        return AdviceRemoteRepositoryInteractor(repository)
     }
 
 }
