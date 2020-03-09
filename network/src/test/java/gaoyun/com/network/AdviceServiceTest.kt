@@ -11,16 +11,6 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val id = "109"
-private const val invalidId = "0"
-
-private const val advice = "Advice"
-private const val testJson = "{\"slip\": {\"advice\":\"$advice\",\"slip_id\":\"$id\"}}"
-
-private const val errorType = "error"
-private const val errorText = "Advice slip not found."
-private const val testErrorJson = "{\"message\": {\"type\": \"$errorType\", \"text\": \"$errorText\"}}"
-
 class AdviceServiceTest {
 
     @get:Rule
@@ -38,8 +28,18 @@ class AdviceServiceTest {
         retrofit.create(AdviceService::class.java)
     }
 
+    private val id = "109"
+    private val invalidId = "0"
+
+    private val advice = "Advice"
+    private val testJson = "{\"slip\": {\"advice\":\"$advice\",\"slip_id\":\"$id\"}}"
+
+    private val errorType = "error"
+    private val errorText = "Advice slip not found."
+    private val testErrorJson = "{\"message\": {\"type\": \"$errorType\", \"text\": \"$errorText\"}}"
+
     @Test
-    fun getRandomAdvice_EmitsAdvice() {
+    fun getRandomAdvice_emitsAdvice() {
         mockWebServer.enqueue(
                 MockResponse()
                         .setBody(testJson)
@@ -50,7 +50,7 @@ class AdviceServiceTest {
     }
 
     @Test
-    fun getAdviceByIdWithValidId_EmitsAdvice() {
+    fun getAdviceByIdWithValidId_emitsAdvice() {
         mockWebServer.enqueue(
                 MockResponse()
                         .setBody(testJson)
@@ -61,7 +61,7 @@ class AdviceServiceTest {
     }
 
     @Test
-    fun getAdviceByIdWithInvalidId_EmitsAdvice() {
+    fun getAdviceByIdWithInvalidId_emitsAdvice() {
         mockWebServer.enqueue(
                 MockResponse()
                         .setBody(testErrorJson)

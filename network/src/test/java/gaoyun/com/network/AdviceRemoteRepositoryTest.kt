@@ -17,7 +17,7 @@ class AdviceRemoteRepositoryTest {
     private val repository = AdviceRemoteRepositoryImpl(adviceServiceMock)
 
     @Test
-    fun getRandomAdvice_EmitsAdvice() {
+    fun getRandomAdvice_emitsAdvice() {
         val advice = AdviceObject(SlipObject(faker.idNumber().valid(), faker.lorem().sentence()))
 
         whenever(adviceServiceMock.getRandomAdvice()).thenReturn(Single.just(advice))
@@ -27,7 +27,7 @@ class AdviceRemoteRepositoryTest {
     }
 
     @Test
-    fun getAdviceByIdWithValidId_EmitsAdvice() {
+    fun getAdviceByIdWithValidId_emitsAdvice() {
         val advice = AdviceObject(SlipObject(faker.idNumber().valid(), faker.lorem().sentence()))
 
         whenever(adviceServiceMock.getAdviceById(advice.slip?.slipId!!))
@@ -38,7 +38,7 @@ class AdviceRemoteRepositoryTest {
     }
 
     @Test
-    fun getAdviceByIdWithNotValidId_EmitsError() {
+    fun getAdviceByIdWithNotValidId_emitsError() {
         val error = AdviceObject(error = ErrorMessage(faker.lorem().word(), faker.lorem().sentence()))
         val invalidId = faker.idNumber().invalid()
 
