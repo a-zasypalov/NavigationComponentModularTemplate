@@ -7,6 +7,7 @@ import com.gaoyun.android.navigationadvancedsample.R
 import com.gaoyun.navigationcomponentmodulartemplate.di.DaggerMainComponent
 import com.gaoyun.navigationcomponentmodulartemplate.di.GlobalNavigatorModule
 import com.gaoyun.navigationcomponentmodulartemplate.navigation.GlobalNavigator
+import com.gaoyun.navigationcomponentmodulartemplate.navigation.GlobalNavigatorRouter
 import gaoyun.com.core_utils.ComponentDependenciesProvider
 import gaoyun.com.core_utils.HasComponentDependencies
 import javax.inject.Inject
@@ -15,6 +16,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), GlobalNavigator,
 
     @Inject
     override lateinit var dependencies: ComponentDependenciesProvider
+
+    private val globalRouter: GlobalNavigatorRouter by lazy {
+        GlobalNavigatorRouter(findNavController(R.id.global_nav))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -27,7 +32,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), GlobalNavigator,
     }
 
     override fun openDestinationGlobally() {
-        findNavController(R.id.global_nav).navigate(R.id.action_tabsFragment_to_global_destination)
+        globalRouter.openDestinationGlobally()
     }
 
 }

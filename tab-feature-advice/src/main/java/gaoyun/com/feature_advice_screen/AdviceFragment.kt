@@ -1,11 +1,11 @@
-package gaoyun.com.feature_info_screen
+package gaoyun.com.feature_advice_screen
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import gaoyun.com.core_utils.findComponentDependencies
-import gaoyun.com.feature_info_screen.di.AdviceModule
-import gaoyun.com.feature_info_screen.di.DaggerAdviceComponent
+import gaoyun.com.feature_advice_screen.di.AdviceModule
+import gaoyun.com.feature_advice_screen.di.DaggerAdviceComponent
 import javax.inject.Inject
 
 class AdviceFragment : Fragment(R.layout.fragment_advice) {

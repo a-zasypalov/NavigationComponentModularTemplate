@@ -11,7 +11,7 @@ import gaoyun.com.core_utils.ComponentDependencies
 import gaoyun.com.core_utils.ComponentDependenciesKey
 import gaoyun.com.feature_global_navigation.di.FeatureGlobalNavigationComponentDependencies
 import gaoyun.com.feature_global_navigation.navigation.FeatureGlobalNavigation
-import gaoyun.com.feature_info_screen.di.AdviceDependencies
+import gaoyun.com.feature_advice_screen.di.AdviceDependencies
 import gaoyun.com.network.di.NetworkModule
 
 @Component(

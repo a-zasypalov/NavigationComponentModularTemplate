@@ -1,12 +1,12 @@
-package gaoyun.com.feature_info_screen.di
+package gaoyun.com.feature_advice_screen.di
 
 import dagger.Component
 import dagger.Module
 import dagger.Provides
 import gaoyun.com.core_utils.ComponentDependencies
-import gaoyun.com.feature_info_screen.AdviceFragment
-import gaoyun.com.feature_info_screen.AdviceViewModel
-import gaoyun.com.feature_info_screen.repository.AdviceRepository
+import gaoyun.com.feature_advice_screen.AdviceFragment
+import gaoyun.com.feature_advice_screen.AdviceViewModel
+import gaoyun.com.feature_advice_screen.repository.AdviceRepository
 import gaoyun.com.network.domain.AdviceRemoteRepositoryInteractor
 
 interface AdviceDependencies : ComponentDependencies {
