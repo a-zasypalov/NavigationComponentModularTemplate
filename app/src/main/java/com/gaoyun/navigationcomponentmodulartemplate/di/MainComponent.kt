@@ -1,11 +1,10 @@
 package com.gaoyun.navigationcomponentmodulartemplate.di
 
+import android.content.Context
+import com.example.persistence.RoomModule
 import com.gaoyun.navigationcomponentmodulartemplate.navigation.GlobalNavigator
 import com.gaoyun.navigationcomponentmodulartemplate.MainActivity
-import dagger.Binds
-import dagger.Component
-import dagger.Module
-import dagger.Provides
+import dagger.*
 import dagger.multibindings.IntoMap
 import gaoyun.com.core_utils.ComponentDependencies
 import gaoyun.com.core_utils.ComponentDependenciesKey
@@ -17,6 +16,7 @@ import gaoyun.com.network.di.NetworkModule
 @Component(
         modules = [
             NetworkModule::class,
+            RoomModule::class,
             GlobalNavigatorModule::class,
             MainComponentDependenciesModule::class
         ]
@@ -30,13 +30,16 @@ interface MainComponent
 }
 
 @Module
-class GlobalNavigatorModule(private val globalNavigation: GlobalNavigator) {
+class GlobalNavigatorModule(private val globalNavigation: GlobalNavigator, private val context: Context) {
 
     @Provides
     fun provideGlobalNavigation(): GlobalNavigator = globalNavigation
 
     @Provides
     fun provideFeatureGlobalNavigation(): FeatureGlobalNavigation = globalNavigation
+
+    @Provides
+    fun provideContext(): Context = context
 
 }
 

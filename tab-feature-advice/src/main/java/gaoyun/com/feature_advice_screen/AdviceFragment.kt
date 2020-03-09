@@ -88,8 +88,13 @@ class AdviceFragment : Fragment(R.layout.fragment_advice) {
                 viewModel.getAdviceById(etAdviceId.text.toString().toInt())
             }
         }
+
         btnGetRandomAdviceAction.setOnClickListener {
             viewModel.getRandomAdvice()
+        }
+
+        btnSaveAdviceAction.setOnClickListener {
+            viewModel.saveAdvice()
         }
     }
 

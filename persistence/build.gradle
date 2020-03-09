@@ -49,8 +49,8 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:2.23.2"
 
     //Room
-    implementation "androidx.room:room-runtime:2.2.4"
-    implementation "androidx.room:room-rxjava2:2.2.4"
+    api "androidx.room:room-runtime:2.2.4"
+    api "androidx.room:room-rxjava2:2.2.4"
     kapt "androidx.room:room-compiler:2.2.4"
 
     //Rx

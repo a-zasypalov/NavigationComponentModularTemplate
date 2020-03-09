@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), GlobalNavigator,
     override fun onCreate(savedInstanceState: Bundle?) {
 
         DaggerMainComponent.builder()
-                .globalNavigatorModule(GlobalNavigatorModule(this))
+                .globalNavigatorModule(GlobalNavigatorModule(this, this))
                 .build()
                 .inject(this)
 

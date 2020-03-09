@@ -47,6 +47,10 @@ class AdviceViewModel: ViewModel() {
         ))
     }
 
+    fun saveAdvice() {
+        repository.saveAdvice((adviceLiveData.value as? AdviceUiModel.Success)?.advice)
+    }
+
     override fun onCleared() {
         super.onCleared()
         disposables.clear()

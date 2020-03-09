@@ -3,6 +3,8 @@ package com.example.persistence
 import android.content.Context
 import androidx.room.Room
 import com.example.persistence.dao.AdviceDao
+import com.example.persistence.repository.AdviceLocalRepository
+import com.example.persistence.repository.AdviceLocalRepositoryImpl
 import dagger.Module
 import dagger.Provides
 
@@ -19,5 +21,9 @@ class RoomModule {
         return appDatabase.adviceDao
     }
 
+    @Provides
+    internal fun provideAdviceLocalRepository(dao: AdviceDao): AdviceLocalRepository {
+        return AdviceLocalRepositoryImpl(dao)
+    }
 
 }
