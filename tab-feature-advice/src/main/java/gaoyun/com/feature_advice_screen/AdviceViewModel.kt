@@ -15,7 +15,9 @@ class AdviceViewModel @Inject constructor(private val repository: AdviceReposito
     private val disposables = CompositeDisposable()
 
     fun getRandomAdvice() {
-        disposables.add(repository.getRandomAdvice().subscribe(
+        disposables.add(repository.getRandomAdvice()
+                .doOnSubscribe {adviceLiveData.postValue(AdviceUiModel.Loading)}
+                .subscribe(
                 { advice ->
                     if (!advice.advice.isNullOrEmpty()) {
                         adviceLiveData.postValue(AdviceUiModel.Success(advice))
@@ -28,7 +30,9 @@ class AdviceViewModel @Inject constructor(private val repository: AdviceReposito
     }
 
     fun getAdviceById(id: Int) {
-        disposables.add(repository.getAdviceById(id).subscribe(
+        disposables.add(repository.getAdviceById(id)
+                .doOnSubscribe {adviceLiveData.postValue(AdviceUiModel.Loading)}
+                .subscribe(
                 { advice ->
                     if (!advice.advice.isNullOrEmpty()) {
                         adviceLiveData.postValue(AdviceUiModel.Success(advice))
