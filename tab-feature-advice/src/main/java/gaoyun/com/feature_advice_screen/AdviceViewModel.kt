@@ -16,7 +16,26 @@ class AdviceViewModel @Inject constructor(private val repository: AdviceReposito
 
     fun getRandomAdvice() {
         disposables.add(repository.getRandomAdvice().subscribe(
-                { advice -> adviceLiveData.postValue(AdviceUiModel.Success(advice)) },
+                { advice ->
+                    if (!advice.advice.isNullOrEmpty()) {
+                        adviceLiveData.postValue(AdviceUiModel.Success(advice))
+                    } else {
+                        adviceLiveData.postValue(AdviceUiModel.Error(advice.error ?: "Error"))
+                    }
+                },
+                { adviceLiveData.postValue(AdviceUiModel.Error(it.localizedMessage ?: "Error")) }
+        ))
+    }
+
+    fun getAdviceById(id: Int) {
+        disposables.add(repository.getAdviceById(id).subscribe(
+                { advice ->
+                    if (!advice.advice.isNullOrEmpty()) {
+                        adviceLiveData.postValue(AdviceUiModel.Success(advice))
+                    } else {
+                        adviceLiveData.postValue(AdviceUiModel.Error(advice.error ?: "Error"))
+                    }
+                },
                 { adviceLiveData.postValue(AdviceUiModel.Error(it.localizedMessage ?: "Error")) }
         ))
     }

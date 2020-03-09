@@ -33,7 +33,7 @@ class AdviceViewModelTests {
     }
 
     @Test
-    fun getRandomAdvice_ReturnsRepository(){
+    fun getRandomAdvice_ReturnsAdvice(){
         val advice = Advice(1, faker.lorem().sentence(), null)
         whenever(mockRepository.getRandomAdvice()).thenReturn(Single.just(advice))
 
@@ -43,6 +43,32 @@ class AdviceViewModelTests {
         viewModel.getRandomAdvice()
 
         verify(mockObserver).onChanged(AdviceUiModel.Success(advice))
+    }
+
+    @Test
+    fun getAdviceByIdWithValidId_ReturnsAdvice(){
+        val advice = Advice(1, faker.lorem().sentence(), null)
+        whenever(mockRepository.getAdviceById(advice.id!!)).thenReturn(Single.just(advice))
+
+        val mockObserver =  mock<Observer<AdviceUiModel>>()
+        viewModel.adviceLiveData.observeForever(mockObserver)
+
+        viewModel.getAdviceById(advice.id!!)
+
+        verify(mockObserver).onChanged(AdviceUiModel.Success(advice))
+    }
+
+    @Test
+    fun getAdviceByIdWithInvalidId_ReturnsError(){
+        val errorAdvice = Advice(0, null, faker.lorem().sentence())
+        whenever(mockRepository.getAdviceById(errorAdvice.id!!)).thenReturn(Single.just(errorAdvice))
+
+        val mockObserver =  mock<Observer<AdviceUiModel>>()
+        viewModel.adviceLiveData.observeForever(mockObserver)
+
+        viewModel.getAdviceById(errorAdvice.id!!)
+
+        verify(mockObserver).onChanged(AdviceUiModel.Error(errorAdvice.error!!))
     }
 
 }
