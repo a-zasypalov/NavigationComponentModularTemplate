@@ -29,7 +29,7 @@ class AdviceRepositoryTests {
     fun getAdviceByIdWithValidId_emitsAdvice() {
         val advice = Advice(1, faker.lorem().sentence(), null)
 
-        whenever(adviceInteractorMock.getRandomAdvice()).thenReturn(Single.just(advice))
+        whenever(adviceInteractorMock.getAdviceById(advice.id!!)).thenReturn(Single.just(advice))
 
         val testObserver = repository.getAdviceById(advice.id!!).test()
         testObserver.assertValue(advice)

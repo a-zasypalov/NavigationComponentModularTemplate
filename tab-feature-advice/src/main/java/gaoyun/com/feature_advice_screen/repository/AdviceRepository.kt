@@ -8,11 +8,11 @@ import javax.inject.Inject
 class AdviceRepository @Inject constructor(val interactor: AdviceRemoteRepositoryInteractor) {
 
     fun getRandomAdvice(): Single<Advice> {
-
+        return interactor.getRandomAdvice()
     }
 
     fun getAdviceById(id: Int): Single<Advice> {
-
+        return interactor.getAdviceById(id)
     }
 
 }
