@@ -1,8 +1,8 @@
 package gaoyun.com.network
 
-import gaoyun.com.network.responses.AdviceObject
-import gaoyun.com.network.responses.ErrorMessage
-import gaoyun.com.network.responses.SlipObject
+import gaoyun.com.network.data.AdviceObject
+import gaoyun.com.network.data.ErrorMessage
+import gaoyun.com.network.data.SlipObject
 import gaoyun.com.network.service.AdviceService
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer

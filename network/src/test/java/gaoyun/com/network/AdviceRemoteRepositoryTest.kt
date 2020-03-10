@@ -4,9 +4,9 @@ import com.github.javafaker.Faker
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import gaoyun.com.network.repository.AdviceRemoteRepositoryImpl
-import gaoyun.com.network.responses.AdviceObject
-import gaoyun.com.network.responses.ErrorMessage
-import gaoyun.com.network.responses.SlipObject
+import gaoyun.com.network.data.AdviceObject
+import gaoyun.com.network.data.ErrorMessage
+import gaoyun.com.network.data.SlipObject
 import gaoyun.com.network.service.AdviceService
 import io.reactivex.Single
 import org.junit.Test

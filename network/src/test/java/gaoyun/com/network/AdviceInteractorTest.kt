@@ -6,9 +6,9 @@ import com.nhaarman.mockitokotlin2.whenever
 import gaoyun.com.data.Advice
 import gaoyun.com.network.domain.AdviceRemoteRepositoryInteractor
 import gaoyun.com.network.repository.AdviceRemoteRepository
-import gaoyun.com.network.responses.AdviceObject
-import gaoyun.com.network.responses.ErrorMessage
-import gaoyun.com.network.responses.SlipObject
+import gaoyun.com.network.data.AdviceObject
+import gaoyun.com.network.data.ErrorMessage
+import gaoyun.com.network.data.SlipObject
 import io.reactivex.Single
 import org.junit.Test
 

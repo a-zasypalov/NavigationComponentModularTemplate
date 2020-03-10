@@ -1,7 +1,7 @@
 package gaoyun.com.network.repository
 
 import gaoyun.com.network.service.AdviceService
-import gaoyun.com.network.responses.AdviceObject
+import gaoyun.com.network.data.AdviceObject
 import io.reactivex.Single
 
 interface AdviceRemoteRepository {

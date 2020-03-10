@@ -1,10 +1,9 @@
 package gaoyun.com.network.service
 
-import gaoyun.com.network.responses.AdviceObject
+import gaoyun.com.network.data.AdviceObject
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface AdviceService {
 

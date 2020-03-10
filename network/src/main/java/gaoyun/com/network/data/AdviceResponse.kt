@@ -1,4 +1,4 @@
-package gaoyun.com.network.responses
+package gaoyun.com.network.data
 
 import com.google.gson.annotations.SerializedName
 
