@@ -1,5 +1,6 @@
 package gaoyun.com.feature_advice_screen
 
+import com.example.persistence.repository.AdviceLocalRepository
 import com.github.javafaker.Faker
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
@@ -12,8 +13,9 @@ import org.junit.Test
 class AdviceRepositoryTests {
 
     private val adviceInteractorMock: AdviceRemoteRepositoryInteractor = mock()
+    private val adviceLocalRepositoryMock: AdviceLocalRepository = mock()
     private val faker = Faker()
-    private val repository = AdviceRepository(adviceInteractorMock)
+    private val repository = AdviceRepository(adviceInteractorMock, adviceLocalRepositoryMock)
 
     @Test
     fun getRandomAdviceEmitsAdvice() {
@@ -30,6 +32,7 @@ class AdviceRepositoryTests {
         val advice = Advice(1, faker.lorem().sentence(), null)
 
         whenever(adviceInteractorMock.getAdviceById(advice.id!!)).thenReturn(Single.just(advice))
+        whenever(adviceLocalRepositoryMock.getAdviceById(advice.id!!)).thenReturn(Single.just(advice))
 
         val testObserver = repository.getAdviceById(advice.id!!).test()
         testObserver.assertValue(advice)
@@ -41,6 +44,7 @@ class AdviceRepositoryTests {
         val invalidId = 0
 
         whenever(adviceInteractorMock.getAdviceById(invalidId)).thenReturn(Single.just(error))
+        whenever(adviceLocalRepositoryMock.getAdviceById(invalidId)).thenReturn(Single.just(error))
 
         val testObserver = repository.getAdviceById(invalidId).test()
         testObserver.assertValue(error)
