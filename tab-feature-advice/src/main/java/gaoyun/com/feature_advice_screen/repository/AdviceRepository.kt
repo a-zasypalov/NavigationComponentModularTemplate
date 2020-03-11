@@ -17,10 +17,8 @@ class AdviceRepository @Inject constructor(
     }
 
     fun getAdviceById(id: Int): Single<Advice> {
-        localRepository.getAdviceById(id).value?.let {
-            return Single.just(Advice(it.id, it.advice, null))
-        }
-        return interactor.getAdviceById(id)
+        return localRepository.getAdviceById(id)
+                .onErrorResumeNext(interactor.getAdviceById(id))
     }
 
     fun saveAdvice(advice: Advice?) {

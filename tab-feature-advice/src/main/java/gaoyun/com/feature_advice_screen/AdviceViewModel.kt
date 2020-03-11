@@ -33,7 +33,7 @@ class AdviceViewModel: ViewModel() {
     }
 
     fun getAdviceById(id: Int) {
-        disposables.add(repository.getAdviceById(id)
+        repository.getAdviceById(id)
                 .doOnSubscribe {adviceLiveData.postValue(AdviceUiModel.Loading)}
                 .subscribe(
                 { advice ->
@@ -44,7 +44,7 @@ class AdviceViewModel: ViewModel() {
                     }
                 },
                 { adviceLiveData.postValue(AdviceUiModel.Error(it.localizedMessage ?: "Error")) }
-        ))
+        )
     }
 
     fun saveAdvice() {

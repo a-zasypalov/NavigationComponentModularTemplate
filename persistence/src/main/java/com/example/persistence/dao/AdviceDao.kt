@@ -9,10 +9,10 @@ import io.reactivex.Single
 interface AdviceDao {
 
     @Query("SELECT * FROM advices")
-    fun getAdvices(): LiveData<List<AdviceEntity>>
+    fun getAdvices(): Single<List<AdviceEntity>>
 
     @Query("SELECT * FROM advices WHERE id = :id")
-    fun getAdviceById(id: Int): LiveData<AdviceEntity>
+    fun getAdviceById(id: Int): Single<AdviceEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAdvice(vararg advice: AdviceEntity)

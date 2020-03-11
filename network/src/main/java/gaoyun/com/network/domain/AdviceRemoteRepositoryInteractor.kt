@@ -18,7 +18,7 @@ class AdviceRemoteRepositoryInteractor(private val repository: AdviceRemoteRepos
     fun getAdviceById(id: Int): Single<Advice> {
         return repository.getAdviceById(id.toString())
                 .subscribeOn(Schedulers.io())
-                .map { Advice(it.slip?.slipId?.toInt(), it.slip?.advice, it.error?.text) }
+                .map { Advice(it.slip?.slipId?.toInt() ?: id, it.slip?.advice, it.error?.text) }
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
