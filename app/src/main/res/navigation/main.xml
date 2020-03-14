@@ -18,4 +18,5 @@
         android:name="gaoyun.com.feature_global_navigation.GlobalNavigationDestinationFragment"
         android:label="GlobalNavigationDestinationFragment"
         tools:layout="@layout/fragment_global_destination" />
+
 </navigation>

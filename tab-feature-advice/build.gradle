@@ -11,9 +11,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-
+        versionCode rootProject.ext.app_code_version
+        versionName rootProject.ext.app_name_version
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
@@ -33,7 +32,7 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-}
+    }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61"
@@ -61,6 +60,13 @@ dependencies {
     // Dagger
     implementation "com.google.dagger:dagger:2.23.2"
     kapt "com.google.dagger:dagger-compiler:2.23.2"
+
+    implementation 'com.google.android.play:core:1.7.0'
+
+    //Lottie
+    implementation 'com.airbnb.android:lottie:3.4.0'
+
+    implementation 'com.google.android.play:core:1.7.0'
 
     //Tests
     testImplementation 'junit:junit:4.12'

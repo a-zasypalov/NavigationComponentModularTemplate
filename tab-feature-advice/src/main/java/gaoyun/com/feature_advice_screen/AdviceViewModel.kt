@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.*
 import gaoyun.com.data.Advice
 import gaoyun.com.feature_advice_screen.data.AdviceUiModel
+import gaoyun.com.feature_advice_screen.navigation.AdviceGlobalNavigation
 import gaoyun.com.feature_advice_screen.repository.AdviceRepository
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
@@ -14,8 +15,15 @@ class AdviceViewModel: ViewModel() {
     @Inject
     lateinit var repository: AdviceRepository
 
+    @Inject
+    lateinit var navigator: AdviceGlobalNavigation
+
     internal val adviceLiveData = MutableLiveData<AdviceUiModel>()
     private val disposables = CompositeDisposable()
+
+    fun dynamicNavigation(){
+        navigator.openAdviceDynamicAnimationGlobally()
+    }
 
     fun getRandomAdvice() {
         disposables.add(repository.getRandomAdvice()

@@ -10,8 +10,8 @@ android {
         applicationId "com.gaoyun.navigationcomponentmodulartemplate"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode rootProject.ext.app_code_version
+        versionName rootProject.ext.app_name_version
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -28,14 +28,20 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+
+    dynamicFeatures = [":dynamicfeature"]
+
+
 }
 
 dependencies {
 
-    implementation project(':feature-tabs-screen')
     implementation project(':core-utils')
     implementation project(':network')
     implementation project(':persistence')
+
+    implementation project(':feature-tabs-screen')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61"
 
@@ -47,9 +53,10 @@ dependencies {
     implementation "androidx.arch.core:core-runtime:2.1.0"
 
     // Navigation
-    implementation  "androidx.fragment:fragment-ktx:1.1.0"
-    implementation "androidx.navigation:navigation-fragment-ktx:2.1.0"
-    implementation "androidx.navigation:navigation-ui-ktx:2.1.0"
+    implementation "androidx.fragment:fragment-ktx:1.1.0"
+    api "androidx.navigation:navigation-fragment-ktx:2.3.0-alpha03"
+    api "androidx.navigation:navigation-ui-ktx:2.3.0-alpha03"
+    api "androidx.navigation:navigation-dynamic-features-fragment:2.3.0-alpha03"
 
     //Dagger
     implementation "com.google.dagger:dagger:2.23.2"

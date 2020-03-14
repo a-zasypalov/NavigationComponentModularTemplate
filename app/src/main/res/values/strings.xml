@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Modular Navigation</string>
+    <string name="title_feature_dynamic_animation">Animation</string>
+    <string name="title_dynamicfeature">Dynamic feature</string>
 </resources>

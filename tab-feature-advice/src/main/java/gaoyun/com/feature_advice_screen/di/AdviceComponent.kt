@@ -7,6 +7,7 @@ import dagger.Provides
 import gaoyun.com.core_utils.ComponentDependencies
 import gaoyun.com.feature_advice_screen.AdviceFragment
 import gaoyun.com.feature_advice_screen.AdviceViewModel
+import gaoyun.com.feature_advice_screen.navigation.AdviceGlobalNavigation
 import gaoyun.com.feature_advice_screen.repository.AdviceRepository
 import gaoyun.com.network.domain.AdviceRemoteRepositoryInteractor
 import java.time.chrono.ChronoLocalDate
@@ -14,6 +15,7 @@ import java.time.chrono.ChronoLocalDate
 interface AdviceDependencies : ComponentDependencies {
     fun interactor(): AdviceRemoteRepositoryInteractor
     fun localRepository(): AdviceLocalRepository
+    fun navigator(): AdviceGlobalNavigation
 }
 
 @Component(dependencies = [AdviceDependencies::class], modules = [AdviceModule::class])
