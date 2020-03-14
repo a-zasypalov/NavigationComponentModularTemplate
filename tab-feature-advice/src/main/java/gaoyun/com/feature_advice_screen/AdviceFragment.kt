@@ -118,10 +118,11 @@ class AdviceFragment : Fragment(R.layout.fragment_advice), SplitInstallStateUpda
         }
 
         btnShowFullscreen.setOnClickListener {
-            setBuildingState()
+
             if (manager.installedModules.contains(moduleAssets)) {
-                startDynamicActivity()
+                viewModel.dynamicNavigation()
             } else {
+                setBuildingState()
                 MaterialAlertDialogBuilder(context)
                         .setTitle("Load dynamic feature?")
                         .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }

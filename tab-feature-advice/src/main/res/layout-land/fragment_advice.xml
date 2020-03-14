@@ -109,7 +109,7 @@
             android:layout_marginBottom="16dp"
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
-            android:text="Show fullscreen" />
+            android:text="Show main advice" />
 
     </LinearLayout>
 
