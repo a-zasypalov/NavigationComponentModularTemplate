@@ -2,6 +2,8 @@ package gaoyun.com.feature_advice_screen
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -59,6 +61,7 @@ class AdviceFragment : Fragment(R.layout.fragment_advice), SplitInstallStateUpda
         pbLoading.show()
         llActions.hide()
         tvAdviceText.hide()
+        lvBuilding.hide()
         etAdviceId.clearFocus()
     }
 
@@ -73,11 +76,13 @@ class AdviceFragment : Fragment(R.layout.fragment_advice), SplitInstallStateUpda
         pbLoading.hide()
         llActions.show()
         tvAdviceText.show()
+        lvBuilding.hide()
     }
 
     private fun setErrorState() {
         pbLoading.hide()
         llActions.show()
+        lvBuilding.hide()
         tvAdviceText.hide()
     }
 
@@ -113,8 +118,8 @@ class AdviceFragment : Fragment(R.layout.fragment_advice), SplitInstallStateUpda
         }
 
         btnShowFullscreen.setOnClickListener {
+            setBuildingState()
             if (manager.installedModules.contains(moduleAssets)) {
-                Toast.makeText(context, "Success!", Toast.LENGTH_SHORT).show()
                 startDynamicActivity()
             } else {
                 MaterialAlertDialogBuilder(context)
@@ -122,7 +127,6 @@ class AdviceFragment : Fragment(R.layout.fragment_advice), SplitInstallStateUpda
                         .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
                         .setPositiveButton("Yes") { dialog, _ ->
                             dialog.dismiss()
-                            setBuildingState()
 
                             val request = SplitInstallRequest.newBuilder()
                                     .addModule(moduleAssets)
@@ -130,7 +134,6 @@ class AdviceFragment : Fragment(R.layout.fragment_advice), SplitInstallStateUpda
 
                             manager.startInstall(request)
                                     .addOnSuccessListener {
-                                        Toast.makeText(context, "Success!", Toast.LENGTH_SHORT).show()
                                         startDynamicActivity()
                                     }
                                     .addOnFailureListener { Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show() }
@@ -144,12 +147,17 @@ class AdviceFragment : Fragment(R.layout.fragment_advice), SplitInstallStateUpda
 
     override fun onStateUpdate(state: SplitInstallSessionState?) {
         if(state?.errorCode() == SplitInstallErrorCode.NO_ERROR && state.status() == SplitInstallSessionStatus.INSTALLED) {
-            viewModel.dynamicNavigation()
+            startDynamicActivity()
         }
     }
 
     private fun startDynamicActivity() {
-        viewModel.dynamicNavigation()
+        Handler(Looper.getMainLooper()).postDelayed({
+            viewModel.dynamicNavigation()
+        }, 3000)
+        Handler(Looper.getMainLooper()).postDelayed({
+            setContentState()
+        }, 4000)
     }
 
     private fun showAdvice(advice: Advice) {
