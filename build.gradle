@@ -19,7 +19,7 @@ allprojects {
     }
 
     ext {
-        app_code_version = 4
-        app_name_version = "1.1.2"
+        app_code_version = 5
+        app_name_version = "1.1.3"
     }
 }

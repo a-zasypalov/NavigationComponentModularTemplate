@@ -29,6 +29,21 @@
         android:visibility="gone"/>
 
     <TextView
+        android:id="@+id/tvDynamicLoading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="32dp"
+        android:text="Loading from Google Play..."
+        android:visibility="gone"/>
+
+    <TextView
         android:id="@+id/tvAdviceText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

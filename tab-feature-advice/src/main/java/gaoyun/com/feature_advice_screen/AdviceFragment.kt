@@ -62,11 +62,13 @@ class AdviceFragment : Fragment(R.layout.fragment_advice), SplitInstallStateUpda
         llActions.hide()
         tvAdviceText.hide()
         lvBuilding.hide()
+        tvDynamicLoading.hide()
         etAdviceId.clearFocus()
     }
 
     private fun setBuildingState() {
         lvBuilding.show()
+        tvDynamicLoading.show()
         llActions.hide()
         tvAdviceText.hide()
         etAdviceId.clearFocus()
@@ -77,6 +79,7 @@ class AdviceFragment : Fragment(R.layout.fragment_advice), SplitInstallStateUpda
         llActions.show()
         tvAdviceText.show()
         lvBuilding.hide()
+        tvDynamicLoading.hide()
     }
 
     private fun setErrorState() {
@@ -84,6 +87,7 @@ class AdviceFragment : Fragment(R.layout.fragment_advice), SplitInstallStateUpda
         llActions.show()
         lvBuilding.hide()
         tvAdviceText.hide()
+        tvDynamicLoading.hide()
     }
 
     private fun initAdviceSubscription() {
@@ -118,17 +122,17 @@ class AdviceFragment : Fragment(R.layout.fragment_advice), SplitInstallStateUpda
         }
 
         btnShowFullscreen.setOnClickListener {
-
+//            setBuildingState()
             if (manager.installedModules.contains(moduleAssets)) {
                 viewModel.dynamicNavigation()
+//                startDynamicActivity()
             } else {
-                setBuildingState()
                 MaterialAlertDialogBuilder(context)
                         .setTitle("Load dynamic feature?")
                         .setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
                         .setPositiveButton("Yes") { dialog, _ ->
                             dialog.dismiss()
-
+                            setBuildingState()
                             val request = SplitInstallRequest.newBuilder()
                                     .addModule(moduleAssets)
                                     .build()
