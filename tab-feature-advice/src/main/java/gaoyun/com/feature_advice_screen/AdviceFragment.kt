@@ -1,6 +1,5 @@
 package gaoyun.com.feature_advice_screen
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -8,13 +7,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.play.core.splitinstall.*
 import com.google.android.play.core.splitinstall.model.SplitInstallErrorCode
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
-import com.jakewharton.rxbinding2.view.clicks
 import gaoyun.com.core_utils.findComponentDependencies
 import gaoyun.com.core_utils.hide
 import gaoyun.com.core_utils.show
@@ -23,7 +20,6 @@ import gaoyun.com.feature_advice_screen.data.AdviceUiModel
 import gaoyun.com.feature_advice_screen.di.AdviceModule
 import gaoyun.com.feature_advice_screen.di.DaggerAdviceComponent
 import kotlinx.android.synthetic.main.fragment_advice.*
-import javax.inject.Inject
 
 class AdviceFragment : Fragment(R.layout.fragment_advice), SplitInstallStateUpdatedListener {
 
